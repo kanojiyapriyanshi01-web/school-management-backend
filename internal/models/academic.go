@@ -47,8 +47,13 @@ type Exam struct {
     ID           uint      `gorm:"primaryKey" json:"id"`
     ExamName     string    `gorm:"not null" json:"exam_name"`
     ClassID      uint      `json:"class_id"`
+    ClassName    string    `json:"class_name"`
+    Section      string    `gorm:"default:A" json:"section"`
+    ExamType     string    `gorm:"default:'Unit Test'" json:"exam_type"`
+    AcademicYear string    `gorm:"default:'2025-26'" json:"academic_year"`
     StartDate    string    `json:"start_date"`
     EndDate      string    `json:"end_date"`
+    Description  string    `json:"description"`
     Status       string    `gorm:"default:draft" json:"status"`
     CreatedAt    time.Time `json:"created_at"`
 }
@@ -94,4 +99,3 @@ type Admission struct {
     CreatedAt     time.Time `json:"created_at"`
     UpdatedAt     time.Time `json:"updated_at"`
 }
-
